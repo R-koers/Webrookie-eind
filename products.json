@@ -1,0 +1,130 @@
+{
+  "components": [
+    {
+      "id": 2,
+      "name": "Corsair Vengeance LPX 16GB (2 x 8GB) DDR4",
+      "price": 79.99,
+      "amount": 50,
+      "image": "https://images.shopcdn.co.uk/7f/eb/7feb8b1bb57cc1d2724c38a4a39eeb66/512x512/webp/resize?quality=80&compression=80",
+      "specifications": {
+        "memory_type": "DDR4",
+        "capacity": "16GB (2 x 8GB)",
+        "speed": "3200 MHz",
+        "cas_latency": "16",
+        "voltage": "1.35V"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Samsung 970 Evo Plus 1TB NVMe SSD",
+      "price": 129.99,
+      "amount": 35,
+      "image": "https://images.samsung.com/is/image/samsung/p6pim/at/mz-v7s1t0bw/gallery/at-970-evo-plus-nvme-m2-ssd-mz-v7s1t0bw-500849050?$684_547_PNG$",
+      "specifications": {
+        "capacity": "1TB",
+        "type": "NVMe",
+        "read_speed": "3500 MB/s",
+        "write_speed": "3300 MB/s",
+        "interface": "PCIe Gen 3.0 x4"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Cooler Master Hyper 212 EVO CPU Cooler",
+      "price": 34.99,
+      "amount": 15,
+      "image": "https://a.storyblok.com/f/281110/f9ef3cd9eb/hyper-212-evo_02.png/m/960x0/smart",
+      "specifications": {
+        "type": "Air Cooler",
+        "compatibility": "Intel & AMD",
+        "fan_speed": "2000 RPM",
+        "heatpipes": "4 Direct Contact",
+        "dimensions": "120 x 79 x 158 mm"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Seagate Barracuda 2TB HDD",
+      "price": 59.99,
+      "amount": 40,
+      "image": "https://theitgear.com/wp-content/uploads/2024/01/Seagate-BarraCuda-2TB-7200-RPM-SATA-3.5-inch-Hard-Drive-1.webp",
+      "specifications": {
+        "capacity": "2TB",
+        "type": "HDD",
+        "speed": "7200 RPM",
+        "cache": "256MB",
+        "interface": "SATA 6Gb/s"
+      }
+    },
+    {
+      "id": 6,
+      "name": "ASUS ROG Strix Z590-E Gaming WiFi Motherboard",
+      "price": 299.99,
+      "amount": 20,
+      "image": "https://dlcdnwebimgs.asus.com/gain/6F6281D9-75F5-48A9-AF2C-9501C3C52EB5",
+      "specifications": {
+        "chipset": "Intel Z590",
+        "form_factor": "ATX",
+        "memory_support": "128GB DDR4",
+        "wifi": "WiFi 6E",
+        "socket": "LGA 1200"
+      }
+    },
+    {
+      "id": 7,
+      "name": "EVGA SuperNOVA 750 G5, 80 Plus Gold 750W PSU",
+      "price": 109.99,
+      "amount": 30,
+      "image": "https://www.custompcguide.net/wp-content/uploads/2018/06/220-T2-0850-X1_LG_1-300x300.png",
+      "specifications": {
+        "wattage": "750W",
+        "efficiency": "80 Plus Gold",
+        "modular": "Fully Modular",
+        "fan_size": "135mm",
+        "protection": "OCP, OVP, UVP, SCP, OPP, OTP"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Intel Core i7-11700K 8-Core 3.6 GHz CPU",
+      "price": 319.99,
+      "amount": 18,
+      "image": "https://image.coolblue.nl/transparent/max/320xauto/products/2099063",
+      "specifications": {
+        "cores": "8 cores",
+        "threads": "16 threads",
+        "base_clock": "3.6 GHz",
+        "boost_clock": "5.0 GHz",
+        "socket": "LGA 1200"
+      }
+    },
+    {
+      "id": 9,
+      "name": "G.Skill Trident Z RGB 32GB (2 x 16GB) DDR4-3600",
+      "price": 159.99,
+      "amount": 22,
+      "image": "https://shop.sww.nl/wp-content/uploads/2024/05/G.SKILL-Trident-Z-RGB-geheugen-1.webp",
+      "specifications": {
+        "memory_type": "DDR4",
+        "capacity": "32GB (2 x 16GB)",
+        "speed": "3600 MHz",
+        "cas_latency": "18",
+        "voltage": "1.35V"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Noctua NH-D15 Chromax Black CPU Cooler",
+      "price": 99.99,
+      "amount": 12,
+      "image": "https://theitgear.com/wp-content/uploads/2022/03/Noctua-NH-D15-Chromax-Black-CPU-Air-Cooler.webp",
+      "specifications": {
+        "type": "Air Cooler",
+        "compatibility": "Intel & AMD",
+        "fan_speed": "1500 RPM",
+        "heatpipes": "6",
+        "dimensions": "165 x 150 x 161 mm"
+      }
+    }
+  ]
+}
