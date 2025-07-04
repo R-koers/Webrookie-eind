@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vexaparts</title>
+   <script src="js/app.js" defer></script>
+   <script src="js/products.js" defer></script>
+   <script src="js/cart.js" defer></script>
+    <link href="src/output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="inset-x-0 top-0 z-50">
+        <nav
+          class="flex items-center justify-between p-6 lg:px-8 bg-blue-950"
+          aria-label="Global"
+        >
+          <div class="flex lg:flex-1">
+            <span></span>
+            <a href="index.html" class="-m-1.5 p-1.5 text-xl">
+              <h1 class="font-semibold text-white">Vexaparts</h1>
+            </a>
+          </div>
+          <div class="flex lg:hidden">
+            <button
+              type="button"
+              class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg
+                class="size-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+                data-slot="icon"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="hidden lg:flex lg:gap-x-12">
+            <a href="parts.html" class="text-xl font-semibold text-white">Parts</a>
+            <a href="#" class="text-xl font-semibold text-white">Pre Builds</a>
+            <a href="#" class="text-xl font-semibold text-white">Customize</a>
+          </div>
+          <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+            <div class="shopping-cart px-6">
+              <button id="open-cart" aria-label="Open shopping cart">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6 text-white"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <a href="#" class="text-xl font-semibold text-white"
+              >Log in <span aria-hidden="true">&rarr;</span></a
+            >
+          </div>
+        </nav>
+      </header>
+
+      <main class="min-h-screen bg-gray-50 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Alle Onderdelen</h1>
+            <p class="text-gray-600">Vind de perfecte onderdelen voor jouw PC build</p>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <div>
+                <label for="search-input" class="block text-sm font-medium text-gray-700 mb-2">Zoeken</label>
+                <input
+                  type="text"
+                  id="search-input"
+                  placeholder="Zoek producten..."
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-950 focus:border-transparent"
+                >
+              </div>
+              <div>
+                <label for="category-filter" class="block text-sm font-medium text-gray-700 mb-2">Categorie</label>
+                <select
+                  id="category-filter"
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-950 focus:border-transparent"
+                >
+                  <option value="">Alle categorieën</option>
+                  <option value="cpu">CPU</option>
+                  <option value="gpu">GPU</option>
+                  <option value="memory">Geheugen</option>
+                  <option value="storage">Opslag</option>
+                  <option value="motherboard">Moederbord</option>
+                  <option value="psu">Voeding</option>
+                  <option value="cooling">Koeling</option>
+                </select>
+              </div>
+              <div>
+                <label for="sort-by" class="block text-sm font-medium text-gray-700 mb-2">Sorteren op</label>
+                <select
+                  id="sort-by"
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-950 focus:border-transparent"
+                >
+                  <option value="name-asc">Naam A-Z</option>
+                  <option value="name-desc">Naam Z-A</option>
+                  <option value="price-asc">Prijs laag-hoog</option>
+                  <option value="price-desc">Prijs hoog-laag</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div id="card-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          </div>
+        </div>
+      </main>
+
+      <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+          <div class="bg-white rounded-lg shadow-xl max-w-md w-full max-h-[80vh] overflow-hidden">
+            <div class="flex items-center justify-between p-4 border-b">
+              <h3 class="text-lg font-semibold">Winkelwagen</h3>
+              <button id="close-cart" class="text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
+            </div>
+            <div id="cart-items" class="p-4 max-h-96 overflow-y-auto">
+            </div>
+            <div class="p-4 border-t bg-gray-50">
+              <div class="flex justify-between items-center mb-4">
+                <span class="font-semibold">Totaal:</span>
+                <span id="cart-total" class="font-bold text-lg">€0,00</span>
+              </div>
+              <div class="flex space-x-2">
+                <button id="clear-cart-btn" class="flex-1 bg-blue-950 hover:bg-blue-900 text-black py-2 px-4 rounded-md transition-colors duration-300 text-sm">
+                  Winkelwagen legen
+                </button>
+                <button id="checkout-btn" class="flex-1 bg-blue-950 hover:bg-blue-900 text-white py-2 px-4 rounded-md transition-colors duration-300">
+                  Afrekenen
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="bg-[#2c3163] text-white py-10 px-4 mt-10 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h2 class="text-xl font-semibold mb-2">VexaParts</h2>
+            <hr class="border-gray-300 mb-2">
+            <p class="text-sm">MuntingLaan 3</p>
+            <p class="text-sm">9727 JT Groningen</p>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold mb-2">Klantenservice</h2>
+            <hr class="border-gray-300 mb-2">
+            <ul class="space-y-1 text-sm">
+              <li>Bestellen</li>
+              <li>Betalen</li>
+              <li>Bezorging</li>
+              <li>Retouren</li>
+              <li>Garantie & Reparatie</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold mb-2">Over VexaParts</h2>
+            <hr class="border-gray-300 mb-2">
+            <ul class="space-y-1 text-sm">
+              <li>Over ons</li>
+              <li>OpeningsTijden</li>
+              <li>Contact</li>
+              <li>Werken bij VexaParts</li>
+              <li>Maatschappelijk</li>
+              <li>Historie</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold mb-2">Algemeen</h2>
+            <hr class="border-gray-300 mb-2">
+            <ul class="space-y-1 text-sm">
+              <li>Zakelijk bestellen</li>
+              <li>Merkenoverzicht</li>
+              <li>Acties</li>
+            </ul>
+            <div class="flex space-x-4 mt-4">
+              <a href="#" aria-label="Facebook" class="hover:text-blue-400">
+                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12.5 0.620117C5.94524 0.620117 0.619995 5.94536 0.619995 12.5001C0.619995 18.4504 5.00886 23.3748 10.725 24.2335L11.3451 24.3274V14.966H8.53859V13.0654H11.3451V10.5416C11.3451 8.9874 11.7181 7.9638 12.3355 7.3216C12.9529 6.6794 13.8651 6.35551 15.1346 6.35551C16.1497 6.35551 16.5446 6.41702 16.9202 6.46309V8.01875H15.5987C14.8488 8.01875 14.2336 8.43711 13.9143 8.99434C13.595 9.55157 13.4956 10.2169 13.4956 10.8949V13.0644H16.8021L16.5078 14.9649H13.4956V24.3421L14.1084 24.2588C19.9057 23.4726 24.38 18.5086 24.38 12.5001C24.38 5.94536 19.0548 0.620117 12.5 0.620117ZM12.5 1.70012C18.4711 1.70012 23.3 6.52903 23.3 12.5001C23.3 17.7542 19.5393 22.0753 14.5756 23.048V16.0449H17.4338L18.0614 11.9844H14.5756V10.8949C14.5756 10.3346 14.6781 9.83267 14.8509 9.53117C15.0237 9.22967 15.1902 9.09875 15.5987 9.09875H18.0002V5.48539L17.5319 5.4221C17.208 5.37828 16.4686 5.27551 15.1346 5.27551C13.6749 5.27551 12.422 5.67313 11.5571 6.57277C10.6922 7.4724 10.2651 8.81198 10.2651 10.5416V11.9854H7.45859V16.046H10.2651V23.0143C5.38118 21.9797 1.7 17.6973 1.7 12.5001C1.7 6.52903 6.52891 1.70012 12.5 1.70012Z" fill="white"/>
+                  </svg>
+              </a>
+              <a href="#" aria-label="Instagram" class="hover:text-pink-400">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13.5 1.80005C7.04879 1.80005 1.79999 7.04885 1.79999 13.5C1.79999 19.9512 7.04879 25.2 13.5 25.2C19.9512 25.2 25.2 19.9512 25.2 13.5C25.2 7.04885 19.9512 1.80005 13.5 1.80005ZM10.4994 5.40005H16.4988C19.3113 5.40005 21.6 7.68786 21.6 10.4995V16.4989C21.6 19.3114 19.3122 21.6 16.5006 21.6H10.5012C7.68866 21.6 5.39999 19.3122 5.39999 16.5006V10.5012C5.39999 7.68872 7.6878 5.40005 10.4994 5.40005ZM10.4994 7.20005C8.6805 7.20005 7.19999 8.68142 7.19999 10.5012V16.5006C7.19999 18.3195 8.68136 19.8001 10.5012 19.8001H16.5006C18.3195 19.8001 19.8 18.3187 19.8 16.4989V10.4995C19.8 8.68057 18.3186 7.20006 16.4988 7.20006L10.4994 7.20005ZM17.7012 8.69946C18.0324 8.69946 18.3006 8.96768 18.3006 9.29888C18.3006 9.63008 18.0324 9.90005 17.7012 9.90005C17.37 9.90005 17.1 9.63008 17.1 9.29888C17.1 8.96768 17.37 8.69946 17.7012 8.69946ZM13.5 9.00005C15.9813 9.00005 18 11.0187 18 13.5C18 15.9813 15.9813 18 13.5 18C11.0187 18 8.99999 15.9813 8.99999 13.5C8.99999 11.0187 11.0187 9.00005 13.5 9.00005ZM13.5 10.8C12.0088 10.8 10.8 12.0089 10.8 13.5C10.8 14.9912 12.0088 16.2 13.5 16.2C14.9911 16.2 16.2 14.9912 16.2 13.5C16.2 12.0089 14.9911 10.8 13.5 10.8Z" fill="white"/>
+                  </svg>
+              </a>
+              <a href="#" aria-label="X" class="hover:text-gray-400">
+                <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_38_133)">
+                  <circle cx="13.5" cy="13.5" r="13.5" fill="white"/>
+                  <circle cx="13.5" cy="13.5" r="12.5" fill="#2D336B"/>
+                  <path d="M7 7L12.4018 14.875L7.11441 21H8.28588L12.9192 15.6291L16.6034 21H21.0295L15.3859 12.7731L20.3661 7H19.1982L14.8678 12.0169L11.4261 7L7 7ZM8.39885 7.73684H11.0382L19.6307 20.2632H16.9913L8.39885 7.73684Z" fill="white"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0_38_133">
+                  <rect width="27" height="27" fill="white"/>
+                  </clipPath>
+                  </defs>
+                  </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+  </body>
