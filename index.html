@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vexaparts</title>
+    <script src="js/app.js" defer></script>
+    <script src="js/products.js" defer></script>
+    <script src="js/cart.js" defer></script>
+    <link href="src/output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="inset-x-0 top-0 z-50">
+      <nav
+        class="flex items-center justify-between p-6 lg:px-8 bg-blue-950"
+        aria-label="Global"
+      >
+        <div class="flex lg:flex-1">
+          <span></span>
+          <a href="index.html" class="-m-1.5 p-1.5 text-xl">
+            <h1 class="font-semibold text-white">Vexaparts</h1>
+          </a>
+        </div>
+        <div class="flex lg:hidden">
+          <button
+            type="button"
+            class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg
+              class="size-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+              data-slot="icon"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="hidden lg:flex lg:gap-x-12">
+          <a href="parts.html" class="text-xl font-semibold text-white">Parts</a>
+          <a href="#" class="text-xl font-semibold text-white">Pre Builds</a>
+          <a href="#" class="text-xl font-semibold text-white">Customize</a>
+        </div>
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+          <div class="shopping-cart px-6">
+            <button id="open-cart" aria-label="Open shopping cart">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6 text-white"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                />
+              </svg>
+            </button>
+          </div>
+          <a href="#" class="text-xl font-semibold text-white"
+            >Log in <span aria-hidden="true">&rarr;</span></a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <section class="relative w-full overflow-hidden">
+      <div class="w-full h-[700px] sm:h-[400px] md:h-[750px] carousel-container">
+        <div
+          id="carousel"
+          class="flex transition-transform duration-500 ease-in-out h-full"
+        >
+          <img
+            src="images/banner1.jpeg"
+            alt="GPU"
+            class="carousel-item object-cover w-full h-full"
+          />
+          <img
+            src="images/rtx3060-20210111-1.jpg"
+            alt="CPU"
+            class="carousel-item object-cover w-full h-full"
+          />
+          <img
+            src="images/banner2.jpeg"
+            alt="Motherboard"
+            class="carousel-item object-cover w-full h-full"
+          />
+          <img
+            src="images/banner3.jpeg"
+            alt="RAM"
+            class="carousel-item object-cover w-full h-full"
+          />
+        </div>
+      </div>
+
+      <div
+        class="absolute inset-y-0 w-full flex items-center justify-between px-2 sm:px-4 z-10"
+      >
+        <button
+          id="prev"
+          class="bg-white/30 hover:bg-white/50 text-white p-2 sm:p-3 rounded-full shadow-md flex items-center justify-center"
+        >
+<svg
+  class="w-5 h-5 sm:w-6 sm:h-6 md:w-[42px] md:h-[36px]"
+  viewBox="0 0 42 36"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M8.76613 17.9203C8.73903 17.9433 8.71752 17.9707 8.70285 18.0008C8.68818 18.031 8.68063 18.0633 8.68063 18.0959C8.68063 18.1286 8.68818 18.1609 8.70285 18.191C8.71752 18.2212 8.73903 18.2485 8.76613 18.2716L26.2315 33.1476C26.2586 33.1707 26.2907 33.189 26.3261 33.2015C26.3615 33.214 26.3994 33.2204 26.4377 33.2204C26.476 33.2204 26.514 33.214 26.5494 33.2015C26.5848 33.189 26.6169 33.1707 26.644 33.1476L32.0762 28.5208C32.1033 28.4978 32.1248 28.4704 32.1395 28.4402C32.1542 28.4101 32.1617 28.3778 32.1617 28.3452C32.1617 28.3125 32.1542 28.2802 32.1395 28.2501C32.1248 28.2199 32.1033 28.1925 32.0762 28.1695L20.249 18.0959L32.0762 8.02237C32.1033 7.9993 32.1248 7.97192 32.1395 7.94178C32.1542 7.91163 32.1617 7.87932 32.1617 7.84669C32.1617 7.81406 32.1542 7.78175 32.1395 7.75161C32.1248 7.72147 32.1033 7.69408 32.0762 7.67102L26.6441 3.04423C26.617 3.02115 26.5848 3.00284 26.5494 2.99035C26.514 2.97786 26.4761 2.97144 26.4378 2.97144C26.3995 2.97144 26.3615 2.97786 26.3261 2.99035C26.2907 3.00284 26.2586 3.02115 26.2315 3.04423L8.76613 17.9203Z"
+    fill="#A9B5DF"
+  />
+  <path
+    d="M8.76614 17.9203C8.73903 17.9433 8.71753 17.9707 8.70286 18.0008C8.68819 18.031 8.68064 18.0633 8.68064 18.0959C8.68064 18.1286 8.68819 18.1609 8.70286 18.191C8.71753 18.2211 8.73903 18.2485 8.76614 18.2716L20.2491 18.0959L32.0762 8.02237C32.1033 7.9993 32.1248 7.97192 32.1395 7.94178C32.1542 7.91163 32.1617 7.87932 32.1617 7.84669C32.1617 7.81406 32.1542 7.78175 32.1395 7.75161C32.1248 7.72147 32.1033 7.69408 32.0762 7.67102L26.6441 3.04423C26.617 3.02115 26.5848 3.00284 26.5494 2.99035C26.514 2.97786 26.4761 2.97144 26.4378 2.97144C26.3995 2.97144 26.3615 2.97786 26.3261 2.99035C26.2907 3.00284 26.2586 3.02115 26.2315 3.04423L8.76614 17.9203Z"
+    fill="#4BB3FD"
+    opacity="0.5"
+  />
+</svg>
+
+        </button>
+
+        <button
+          id="next"
+          class="bg-white/30 hover:bg-white/50 text-white p-2 sm:p-3 rounded-full shadow-md flex items-center justify-center"
+        >
+          <svg
+  class="w-5 h-5 sm:w-6 sm:h-6 md:w-[42px] md:h-[36px]"
+  viewBox="0 0 42 37"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M33.0487 18.7565C33.0758 18.7334 33.0973 18.7061 33.1119 18.6759C33.1266 18.6458 33.1342 18.6135 33.1342 18.5808C33.1342 18.5482 33.1266 18.5159 33.1119 18.4858C33.0973 18.4556 33.0758 18.4282 33.0487 18.4052L15.5833 3.52913C15.5562 3.50605 15.5241 3.48774 15.4887 3.47524C15.4533 3.46275 15.4154 3.45632 15.3771 3.45632C15.3387 3.45632 15.3008 3.46275 15.2654 3.47524C15.23 3.48774 15.1979 3.50605 15.1708 3.52913L9.73858 8.15593C9.71147 8.17899 9.68998 8.20637 9.67531 8.23652C9.66063 8.26666 9.65308 8.29897 9.65308 8.3316C9.65308 8.36423 9.66063 8.39654 9.67531 8.42668C9.68998 8.45683 9.71147 8.48421 9.73858 8.50727L21.5657 18.5808L9.73858 28.6544C9.71147 28.6775 9.68998 28.7048 9.67531 28.735C9.66063 28.7651 9.65308 28.7974 9.65308 28.8301C9.65308 28.8627 9.66063 28.895 9.67531 28.9251C9.68998 28.9553 9.71147 28.9827 9.73858 29.0057L15.1707 33.6325C15.1978 33.6556 15.23 33.6739 15.2654 33.6864C15.3008 33.6989 15.3387 33.7053 15.377 33.7053C15.4153 33.7053 15.4533 33.6989 15.4887 33.6864C15.5241 33.6739 15.5562 33.6556 15.5833 33.6325L33.0487 18.7565Z"
+    fill="#A9B5DF"
+  />
+  <path
+    d="M33.0487 18.7565C33.0758 18.7334 33.0973 18.7061 33.1119 18.6759C33.1266 18.6458 33.1341 18.6135 33.1341 18.5808C33.1341 18.5482 33.1266 18.5159 33.1119 18.4858C33.0973 18.4556 33.0758 18.4282 33.0487 18.4052L21.5657 18.5808L9.73857 28.6544C9.71147 28.6775 9.68997 28.7048 9.6753 28.735C9.66063 28.7651 9.65308 28.7974 9.65308 28.8301C9.65308 28.8627 9.66063 28.895 9.6753 28.9251C9.68997 28.9553 9.71147 28.9827 9.73857 29.0057L15.1707 33.6325C15.1978 33.6556 15.23 33.6739 15.2653 33.6864C15.3007 33.6989 15.3387 33.7053 15.377 33.7053C15.4153 33.7053 15.4533 33.6989 15.4887 33.6864C15.5241 33.6739 15.5562 33.6556 15.5833 33.6325L33.0487 18.7565Z"
+    fill="#4BB3FD"
+    opacity="0.5"
+  />
+</svg>
+
+        </button>
+      </div>
+    </section>
+    <section class="bg-indigo-300 shadow-md text-white py-4 px-2">
+      <ul
+        class="flex flex-col items-center gap-y-2 text-center sm:flex-row sm:justify-center sm:gap-x-6 sm:text-lg md:text-2xl font-semibold"
+      >
+        <li>Voor 22:00 besteld? Morgen in huis!</li>
+        <li class="inline-flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 sm:w-6 sm:h-6 mx-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </li>
+        <li>Gratis bezorgkosten vanaf €60,-</li>
+        <li class="inline-flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 sm:w-6 sm:h-6 mx-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </li>
+        <li>Niet goed? Geld gegarandeerd terug</li>
+        <li class="inline-flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 sm:w-6 sm:h-6 mx-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </li>
+        <li><a href="#">Info & Hulp</a></li>
+      </ul>
+    </section>
+
+    <section class="max-w-7xl mx-auto">
+      <ul class="flex flex-row flex-wrap justify-center gap-x-6 py-8 px-4">
+        <li
+          class="w-[120px] h-[40px] bg-blue-950 text-white rounded-xl shadow-md hover:bg-blue-900 transition-colors duration-300 flex items-center justify-center font-medium"
+        >
+          GPU
+        </li>
+        <li
+          class="w-[120px] h-[40px] bg-blue-950 text-white rounded-xl shadow-md hover:bg-blue-900 transition-colors duration-300 flex items-center justify-center font-medium"
+        >
+          PSU
+        </li>
+        <li
+          class="w-[120px] h-[40px] bg-blue-950 text-white rounded-xl shadow-md hover:bg-blue-900 transition-colors duration-300 flex items-center justify-center font-medium"
+        >
+          Moederbord
+        </li>
+        <li
+          class="w-[120px] h-[40px] bg-blue-950 text-white rounded-xl shadow-md hover:bg-blue-900 transition-colors duration-300 flex items-center justify-center font-medium"
+        >
+          CPU
+        </li>
+      </ul>
+    </section>
+<div class="flex px-[125px]">
+<h1 class="text-7xl">Best sellers</h1>
+</div>
+<section class="mx-auto my-4 items-center justify-center">
+  <div id="card-container" class="flex flex-wrap px-4 gap-6"></div>
+</section>
+
+<!-- Cart Modal -->
+<div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+  <div class="flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white rounded-lg shadow-xl max-w-md w-full max-h-[80vh] overflow-hidden">
+      <div class="flex items-center justify-between p-4 border-b">
+        <h3 class="text-lg font-semibold">Winkelwagen</h3>
+        <button id="close-cart" class="text-gray-400 hover:text-gray-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div id="cart-items" class="p-4 max-h-96 overflow-y-auto">
+        <!-- Cart items will be loaded here -->
+      </div>
+      <div class="p-4 border-t bg-gray-50">
+        <div class="flex justify-between items-center mb-4">
+          <span class="font-semibold">Totaal:</span>
+          <span id="cart-total" class="font-bold text-lg">€0,00</span>
+        </div>
+        <div class="flex space-x-2">
+          <button id="clear-cart-btn" class="flex-1 bg-blue-950 hover:bg-blue-900 text-white py-2 px-4 rounded-md transition-colors duration-300 text-sm">
+            Winkelwagen legen
+          </button>
+          <button id="checkout-btn" class="flex-1 bg-blue-950 hover:bg-blue-900 text-white py-2 px-4 rounded-md transition-colors duration-300">
+            Afrekenen
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-[#2c3163] text-white py-10 px-4 mt-10 border-t border-gray-200">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div>
+      <h2 class="text-xl font-semibold mb-2">VexaParts</h2>
+      <hr class="border-gray-300 mb-2">
+      <p class="text-sm">MuntingLaan 3</p>
+      <p class="text-sm">9727 JT Groningen</p>
+    </div>
+    <div>
+      <h2 class="text-xl font-semibold mb-2">Klantenservice</h2>
+      <hr class="border-gray-300 mb-2">
+      <ul class="space-y-1 text-sm">
+        <li>Bestellen</li>
+        <li>Betalen</li>
+        <li>Bezorging</li>
+        <li>Retouren</li>
+        <li>Garantie & Reparatie</li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="text-xl font-semibold mb-2">Over VexaParts</h2>
+      <hr class="border-gray-300 mb-2">
+      <ul class="space-y-1 text-sm">
+        <li>Over ons</li>
+        <li>OpeningsTijden</li>
+        <li>Contact</li>
+        <li>Werken bij VexaParts</li>
+        <li>Maatschappelijk</li>
+        <li>Historie</li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="text-xl font-semibold mb-2">Algemeen</h2>
+      <hr class="border-gray-300 mb-2">
+      <ul class="space-y-1 text-sm">
+        <li>Zakelijk bestellen</li>
+        <li>Merkenoverzicht</li>
+        <li>Acties</li>
+      </ul>
+      <div class="flex space-x-4 mt-4">
+        <a href="#" aria-label="Facebook" class="hover:text-blue-400">
+          <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.5 0.620117C5.94524 0.620117 0.619995 5.94536 0.619995 12.5001C0.619995 18.4504 5.00886 23.3748 10.725 24.2335L11.3451 24.3274V14.966H8.53859V13.0654H11.3451V10.5416C11.3451 8.9874 11.7181 7.9638 12.3355 7.3216C12.9529 6.6794 13.8651 6.35551 15.1346 6.35551C16.1497 6.35551 16.5446 6.41702 16.9202 6.46309V8.01875H15.5987C14.8488 8.01875 14.2336 8.43711 13.9143 8.99434C13.595 9.55157 13.4956 10.2169 13.4956 10.8949V13.0644H16.8021L16.5078 14.9649H13.4956V24.3421L14.1084 24.2588C19.9057 23.4726 24.38 18.5086 24.38 12.5001C24.38 5.94536 19.0548 0.620117 12.5 0.620117ZM12.5 1.70012C18.4711 1.70012 23.3 6.52903 23.3 12.5001C23.3 17.7542 19.5393 22.0753 14.5756 23.048V16.0449H17.4338L18.0614 11.9844H14.5756V10.8949C14.5756 10.3346 14.6781 9.83267 14.8509 9.53117C15.0237 9.22967 15.1902 9.09875 15.5987 9.09875H18.0002V5.48539L17.5319 5.4221C17.208 5.37828 16.4686 5.27551 15.1346 5.27551C13.6749 5.27551 12.422 5.67313 11.5571 6.57277C10.6922 7.4724 10.2651 8.81198 10.2651 10.5416V11.9854H7.45859V16.046H10.2651V23.0143C5.38118 21.9797 1.7 17.6973 1.7 12.5001C1.7 6.52903 6.52891 1.70012 12.5 1.70012Z" fill="white"/>
+            </svg>
+        </a>
+        <a href="#" aria-label="Instagram" class="hover:text-pink-400">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.5 1.80005C7.04879 1.80005 1.79999 7.04885 1.79999 13.5C1.79999 19.9512 7.04879 25.2 13.5 25.2C19.9512 25.2 25.2 19.9512 25.2 13.5C25.2 7.04885 19.9512 1.80005 13.5 1.80005ZM10.4994 5.40005H16.4988C19.3113 5.40005 21.6 7.68786 21.6 10.4995V16.4989C21.6 19.3114 19.3122 21.6 16.5006 21.6H10.5012C7.68866 21.6 5.39999 19.3122 5.39999 16.5006V10.5012C5.39999 7.68872 7.6878 5.40005 10.4994 5.40005ZM10.4994 7.20005C8.6805 7.20005 7.19999 8.68142 7.19999 10.5012V16.5006C7.19999 18.3195 8.68136 19.8001 10.5012 19.8001H16.5006C18.3195 19.8001 19.8 18.3187 19.8 16.4989V10.4995C19.8 8.68057 18.3186 7.20006 16.4988 7.20006L10.4994 7.20005ZM17.7012 8.69946C18.0324 8.69946 18.3006 8.96768 18.3006 9.29888C18.3006 9.63008 18.0324 9.90005 17.7012 9.90005C17.37 9.90005 17.1 9.63008 17.1 9.29888C17.1 8.96768 17.37 8.69946 17.7012 8.69946ZM13.5 9.00005C15.9813 9.00005 18 11.0187 18 13.5C18 15.9813 15.9813 18 13.5 18C11.0187 18 8.99999 15.9813 8.99999 13.5C8.99999 11.0187 11.0187 9.00005 13.5 9.00005ZM13.5 10.8C12.0088 10.8 10.8 12.0089 10.8 13.5C10.8 14.9912 12.0088 16.2 13.5 16.2C14.9911 16.2 16.2 14.9912 16.2 13.5C16.2 12.0089 14.9911 10.8 13.5 10.8Z" fill="white"/>
+            </svg>
+        </a>
+        <a href="#" aria-label="X" class="hover:text-gray-400">
+          <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_38_133)">
+            <circle cx="13.5" cy="13.5" r="13.5" fill="white"/>
+            <circle cx="13.5" cy="13.5" r="12.5" fill="#2D336B"/>
+            <path d="M7 7L12.4018 14.875L7.11441 21H8.28588L12.9192 15.6291L16.6034 21H21.0295L15.3859 12.7731L20.3661 7H19.1982L14.8678 12.0169L11.4261 7L7 7ZM8.39885 7.73684H11.0382L19.6307 20.2632H16.9913L8.39885 7.73684Z" fill="white"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_38_133">
+            <rect width="27" height="27" fill="white"/>
+            </clipPath>
+            </defs>
+            </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

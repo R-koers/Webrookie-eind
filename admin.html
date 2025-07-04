@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Vexaparts</title>
+    <script src="js/admin.js" defer></script>
+    <link href="src/output.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-50">
+    <header class="inset-x-0 top-0 z-50">
+      <nav
+        class="flex items-center justify-between p-6 lg:px-8 bg-blue-950"
+        aria-label="Global"
+      >
+        <div class="flex lg:flex-1">
+          <span></span>
+          <a href="index.html" class="-m-1.5 p-1.5 text-xl">
+            <h1 class="font-semibold text-white">Vexaparts Admin</h1>
+          </a>
+        </div>
+        <div class="hidden lg:flex lg:gap-x-12">
+          <a href="index.html" class="text-xl font-semibold text-white">Terug naar webshop</a>
+        </div>
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+          <button id="reset-products" class="text-xl font-semibold text-white hover:text-red-300 transition-colors">
+            Reset naar origineel
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="min-h-screen py-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Page Header -->
+        <div class="mb-8">
+          <h1 class="text-3xl font-bold text-gray-900 mb-2">Product Beheer</h1>
+          <p class="text-gray-600">Beheer je producten - toevoegen, bewerken, verwijderen</p>
+        </div>
+
+
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-8">
+          <h2 class="text-xl font-semibold text-gray-900 mb-4">Product Toevoegen</h2>
+          <form id="add-product-form" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div>
+              <label for="product-name" class="block text-sm font-medium text-gray-700 mb-1">Naam *</label>
+              <input type="text" id="product-name" name="name" required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-950 focus:border-transparent">
+            </div>
+            <div>
+              <label for="product-category" class="block text-sm font-medium text-gray-700 mb-1">Categorie *</label>
+              <select id="product-category" name="category" required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-950 focus:border-transparent">
+                <option label="select" value=""></option>
+                <option value="cpu">CPU</option>
+                <option value="gpu">GPU</option>
+                <option value="memory">Geheugen</option>
+                <option value="storage">Opslag</option>
+                <option value="motherboard">Moederbord</option>
+                <option value="psu">Voeding</option>
+                <option value="cooling">Koeling</option>
+              </select>
+            </div>
+            <div>
+              <label for="product-price" class="block text-sm font-medium text-gray-700 mb-1">Prijs (€) *</label>
+              <input type="number" id="product-price" name="price" step="0.01" min="0" required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-950 focus:border-transparent">
+            </div>
+            <div>
+              <label for="product-image" class="block text-sm font-medium text-gray-700 mb-1">Afbeelding URL *</label>
+              <input type="url" id="product-image" name="image" required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-950 focus:border-transparent">
+            </div>
+            <div class="md:col-span-2">
+              <label for="product-description" class="block text-sm font-medium text-gray-700 mb-1">Beschrijving</label>
+              <textarea id="product-description" name="description" rows="3"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-950 focus:border-transparent"></textarea>
+            </div>
+            <div class="md:col-span-2 flex items-end">
+              <button type="submit" class="w-full bg-blue-950 hover:bg-blue-900 text-white py-2 px-4 rounded-md transition-colors duration-300">
+                Product Toevoegen
+              </button>
+            </div>
+          </form>
+        </div>
+
+
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-semibold text-gray-900">Producten Overzicht</h2>
+            <div class="flex space-x-2">
+              <button id="save-changes" class="bg-green-600 hover:bg-green-700 text-white py-1.5 px-3 rounded text-sm transition-colors duration-300">
+                Wijzigingen Opslaan
+              </button>
+              <button id="reset-products-btn" class="bg-red-600 hover:bg-red-700 text-white py-1.5 px-3 rounded text-sm transition-colors duration-300">
+                Reset naar Origineel
+              </button>
+            </div>
+          </div>
+          <div id="products-list" class="space-y-4">
+            <!-- Producten worden hier geladen -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Order Management Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-12">
+      <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-4">
+          <div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-1">Bestellingen</h2>
+            <p class="text-gray-600 text-sm">Bekijk, zoek, exporteer en print bestellingen</p>
+          </div>
+          <div class="flex flex-col md:flex-row gap-2 items-stretch md:items-end">
+            <input id="order-search" type="text" placeholder="Zoek op ordernummer of product..." class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-950 focus:border-transparent text-sm" />
+            <button id="order-refresh" class="bg-blue-950 hover:bg-blue-900 text-white py-2 px-4 rounded-md text-sm transition-colors">Verversen</button>
+          </div>
+        </div>
+        <div class="overflow-x-auto">
+          <table id="orders-table" class="min-w-full bg-white border border-gray-200 rounded-lg">
+            <thead>
+              <tr>
+                <th class="px-4 py-2 border-b border-gray-200 text-left text-xs font-semibold text-gray-700 uppercase">Tijd</th>
+                <th class="px-4 py-2 border-b border-gray-200 text-left text-xs font-semibold text-gray-700 uppercase">Order ID</th>
+                <th class="px-4 py-2 border-b border-gray-200 text-left text-xs font-semibold text-gray-700 uppercase">Product</th>
+                <th class="px-4 py-2 border-b border-gray-200 text-left text-xs font-semibold text-gray-700 uppercase">Aantal</th>
+                <th class="px-4 py-2 border-b border-gray-200 text-left text-xs font-semibold text-gray-700 uppercase">Totaal Items</th>
+                <th class="px-4 py-2 border-b border-gray-200 text-left text-xs font-semibold text-gray-700 uppercase">Acties</th>
+              </tr>
+            </thead>
+            <tbody id="orders-table-body" class="divide-y divide-gray-200">
+              <!-- Orders worden hier geladen -->
+            </tbody>
+          </table>
+        </div>
+        <div id="orders-empty" class="text-center py-8 text-gray-500 hidden">
+          <svg class="w-12 h-12 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+          </svg>
+          <p>Geen bestellingen gevonden</p>
+        </div>
+      </div>
+    </section>
+
+    <div id="edit-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+      <div class="flex items-center justify-center min-h-screen p-4">
+        <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-semibold">Product Bewerken</h3>
+            <button id="close-edit-modal" class="text-gray-400 hover:text-gray-600">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+          <form id="edit-product-form" class="space-y-4">
+            <input type="hidden" id="edit-product-id" name="id">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="edit-product-name" class="block text-sm font-medium text-gray-700 mb-1">Naam *</label>
+                <input type="text" id="edit-product-name" name="name" required
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-950 focus:border-transparent">
+              </div>
+              <div>
+                <label for="edit-product-category" class="block text-sm font-medium text-gray-700 mb-1">Categorie *</label>
+                <select id="edit-product-category" name="category" required
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-950 focus:border-transparent">
+                  <option label="select" value=""></option>
+                  <option value="cpu">CPU</option>
+                  <option value="GPU">GPU</option>
+                  <option value="memory">Geheugen</option>
+                  <option value="storage">Opslag</option>
+                  <option value="motherboard">Moederbord</option>
+                  <option value="psu">Voeding</option>
+                  <option value="cooling">Koeling</option>
+                </select>
+              </div>
+              <div>
+                <label for="edit-product-price" class="block text-sm font-medium text-gray-700 mb-1">Prijs (€) *</label>
+                <input type="number" id="edit-product-price" name="price" step="0.01" min="0" required
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-950 focus:border-transparent">
+              </div>
+              <div>
+                <label for="edit-product-image" class="block text-sm font-medium text-gray-700 mb-1">Afbeelding URL *</label>
+                <input type="url" id="edit-product-image" name="image" required
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-950 focus:border-transparent">
+              </div>
+            </div>
+            <div>
+              <label for="edit-product-description" class="block text-sm font-medium text-gray-700 mb-1">Beschrijving</label>
+              <textarea id="edit-product-description" name="description" rows="3"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-950 focus:border-transparent"></textarea>
+            </div>
+            <div class="flex justify-end space-x-2 pt-4">
+              <button type="button" id="cancel-edit" class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-md transition-colors duration-300">
+                Annuleren
+              </button>
+              <button type="submit" class="bg-blue-950 hover:bg-blue-900 text-white py-2 px-4 rounded-md transition-colors duration-300">
+                Opslaan
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="confirm-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+      <div class="flex items-center justify-center min-h-screen p-4">
+        <div class="bg-white rounded-lg shadow-xl max-w-md w-full p-6 text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-4" id="confirm-title">Bevestiging</h3>
+          <p class="text-gray-600 mb-6" id="confirm-message">Weet je het zeker?</p>
+          <div class="flex justify-center space-x-2">
+            <button id="confirm-cancel" class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-md transition-colors duration-300">
+              Annuleren
+            </button>
+            <button id="confirm-ok" class="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md transition-colors duration-300">
+              Ja, doorgaan
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-[#2c3163] text-white py-10 px-4 mt-10 border-t border-gray-200">
+      <div class="max-w-7xl mx-auto text-center">
+        <h2 class="text-xl font-semibold mb-2">VexaParts Admin Panel</h2>
+        <p class="text-sm">Product beheer systeem</p>
+      </div>
+    </footer>
+  </body>
+</html>
